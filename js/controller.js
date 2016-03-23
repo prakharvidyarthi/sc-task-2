@@ -23,6 +23,8 @@ myApp.config(function($routeProvider) {
     });
 
 words = [];
+sense_words = [];
+nonsense_words = [];
 
 myApp.controller('mainController',function($scope){
 
@@ -41,6 +43,7 @@ myApp.controller('mainController',function($scope){
 			new_word = create_word(Math.floor(Math.random()*28.5)+1);
 			$("<p>Word Generated : " + new_word + "</p>").appendTo( '#content' );
 			words.push(new_word);
+			nonsense_words.push(new_word);
 			$('#display_word').css("height",$('#content').height());
 	    });
 
@@ -57,6 +60,7 @@ myApp.controller('mainController',function($scope){
 			$('#content').find('p').remove();
 			$("<p>Word Generated : " + new_word + "</p>").appendTo( '#content' );
 			words.push(new_word);
+			sense_words.push(new_word);
 			$('#display_word').css("height",$('#content').height());
 	    });
 
@@ -93,4 +97,21 @@ myApp.controller('historyController', function($scope) {
 });
 
 myApp.controller('sortController', function($scope) {
-    });
+	angular.element(document).ready(function () {
+    	if(words.length==0){
+    		$("<p>" + "No words to sort. Use the generator to create new words." + "</p>").appendTo( '#sort_show' );
+    	}
+    	else{
+	    	sense_sorted = sense_words.sort();
+	    	nonsense_sorted = nonsense_words.sort();
+	    	$("<h2>Dictionary Words</h2><br>").appendTo('#sense_sorted');
+	    	for(i=0;i<sense_sorted.length;i++){
+				$("<p>" + sense_sorted[i] + "</p>").appendTo( '#sense_sorted' );
+			}
+			$("<h2>Senseless Words</h2><br>").appendTo('#nonsense_sorted');
+			for(i=0;i<nonsense_sorted.length;i++){
+				$("<p>" + nonsense_sorted[i] + "</p>").appendTo( '#nonsense_sorted' );
+			}  
+		}
+  	});
+});
