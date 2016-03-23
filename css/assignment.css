@@ -1,0 +1,75 @@
+@font-face {
+    font-family: ikaros; /*a name to be used later*/
+    src: url('../fonts/ikaros.otf'); /*URL to font*/
+}
+
+body{
+	text-align: center;
+	background-color: #4895B1;
+	font-family: ikaros;	
+	font-size: 20px;
+	letter-spacing: 1px;
+	color : white;
+}
+
+button:focus {
+	outline:0;
+}
+
+button{
+	height : 50px;
+	width : 250px;
+	background-color : white;
+	color : #4895B1;
+	cursor: pointer;
+	border-radius: 5px;
+	border : none;
+	margin : 30px;
+}
+
+button:hover{
+	color : #09121B;
+	border : none;
+}
+
+#display_word{
+	height : 50px;
+	width : 100%;
+	font-weight: bold;
+}
+
+.navbar{
+	background-color: #4895B1;
+	border : none;	
+	font-family: ikaros;
+	font-size : 22px;
+}
+
+#content #content_show{
+	font-size : 24px;
+}
+
+a{
+	color : white;
+	outline: none;
+	cursor: pointer;
+}
+
+a:hover{
+	text-decoration: none;
+	color : #09121B;
+}
+
+a:active{
+	text-decoration: none;	
+}
+
+#space{
+	width: 100%;
+	height: 100px;
+}
+
+#content h2{
+	font-size : 36px;
+	font-weight: bold;
+}
