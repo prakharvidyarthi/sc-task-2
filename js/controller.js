@@ -40,7 +40,7 @@ myApp.controller('mainController',function($scope){
 			//generate random word
 
 			$('#content').find('p').remove();
-			new_word = create_word(Math.floor(Math.random()*28.5)+1);
+			new_word = create_gibberish(Math.floor(Math.random()*28.5)+1);
 			$("<p>Word Generated : " + new_word + "</p>").appendTo( '#content' );
 			words.push(new_word);
 			nonsense_words.push(new_word);
@@ -49,12 +49,7 @@ myApp.controller('mainController',function($scope){
 
 	    $('#generate_button').click(function(event){
 
-			//get English word from api
-			var xhr = new XMLHttpRequest();
-			xhr.open("GET", "http://randomword.setgetgo.com/get.php", false);
-			xhr.send();
-			
-			new_word = (xhr.responseText);
+			new_word = create_word();
 
 			//remove previous para and append new one
 			$('#content').find('p').remove();
@@ -64,20 +59,6 @@ myApp.controller('mainController',function($scope){
 			$('#display_word').css("height",$('#content').height());
 	    });
 
-	    function create_word(length){
-			var word = [];
-			vowels = 'aeiou';
-			consonants = 'bcdfghjklmnpqrstvwxyz';
-			for(i=0;i<length;i++){
-				if(Math.random()>0.5){
-					word[i] = consonants[Math.floor(Math.random()*20.9)];
-				}
-				else{
-					word[i] = vowels[Math.floor(Math.random()*4.9)];
-				}
-			}	
-			return word.join('');
-		}
 	});
 
 });
