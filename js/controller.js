@@ -48,7 +48,7 @@ myApp.controller('mainController',function($scope){
 
 			//get English word from api
 			var xhr = new XMLHttpRequest();
-			xhr.open("GET", "https://randomword.setgetgo.com/get.php", false);
+			xhr.open("GET", "http://randomword.setgetgo.com/get.php", false);
 			xhr.send();
 			
 			new_word = (xhr.responseText);
